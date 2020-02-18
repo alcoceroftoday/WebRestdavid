@@ -16,6 +16,5 @@ dependencies {
     annotationProcessor 'io.vertx:vertx-codegen:3.8.5:processor'
     annotationProcessor 'io.vertx:vertx-web-api-service:3.8.5'
     compile 'io.vertx:vertx-web-api-service:3.8.5'
-
   compile 'io.vertx:vertx-mysql-client:3.8.5'
 }
