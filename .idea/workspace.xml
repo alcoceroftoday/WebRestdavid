@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3c040da-b891-4d53-a1a5-16594505c4d3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
@@ -9,13 +10,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/vertx/webrest/rest/Rest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/io/vertx/webrest/rest/Rest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/io/vertx/webrest/rest/RestVerticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/io/vertx/webrest/rest/RestVerticle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/vertx/webrest/rest/Rest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/vertx/webrest/rest/Rest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/vertx/webrest/rest/RestVerticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/vertx/webrest/rest/RestVerticle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,26 +115,30 @@
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state x="435" y="190" width="525" height="435" key="#com.intellij.ide.util.TreeClassChooserDialog/51.27.1315.741@51.27.1315.741" timestamp="1582066972153" />
+    <state x="51" y="27" width="643" height="741" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582228346638">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="51" y="27" width="643" height="741" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/51.27.1315.741@51.27.1315.741" timestamp="1582228346638" />
     <state x="491" y="155" width="735" height="491" key="FileChooserDialogImpl" timestamp="1582122590524">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state x="491" y="155" width="735" height="491" key="FileChooserDialogImpl/51.27.1315.741@51.27.1315.741" timestamp="1582122590524" />
-    <state width="1269" height="338" key="GridCell.Tab.0.bottom" timestamp="1582223888113">
+    <state width="1269" height="92" key="GridCell.Tab.0.bottom" timestamp="1582234448545">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="338" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582223888113" />
-    <state width="1269" height="338" key="GridCell.Tab.0.center" timestamp="1582223888112">
+    <state width="1269" height="92" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1582234448545" />
+    <state width="1269" height="92" key="GridCell.Tab.0.center" timestamp="1582234448545">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="338" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582223888112" />
-    <state width="1269" height="338" key="GridCell.Tab.0.left" timestamp="1582223888111">
+    <state width="1269" height="92" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1582234448545" />
+    <state width="1269" height="92" key="GridCell.Tab.0.left" timestamp="1582234448545">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="338" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582223888111" />
-    <state width="1269" height="338" key="GridCell.Tab.0.right" timestamp="1582223888112">
+    <state width="1269" height="92" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1582234448545" />
+    <state width="1269" height="92" key="GridCell.Tab.0.right" timestamp="1582234448545">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state width="1269" height="338" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582223888112" />
+    <state width="1269" height="92" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1582234448545" />
     <state x="197" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1582219621454">
       <screen x="51" y="27" width="1315" height="741" />
     </state>

@@ -19,6 +19,7 @@ import io.vertx.reactivex.core.Vertx;
 import io.vertx.sqlclient.PoolOptions;
 import io.vertx.sqlclient.Row;
 import io.vertx.sqlclient.RowSet;
+import io.vertx.webrest.service.Routes;
 import io.vertx.webrest.util.DBUtils;
 
 import java.util.HashMap;
@@ -67,19 +68,13 @@ public class RestVerticle extends AbstractVerticle {
             }
         });
 
-
-
         artists = dbUtils.getArtists();
         albums = dbUtils.getAlbums();
         tracks = dbUtils.getTracks();
         Router router = Router.router(vertx);
 
-        router.route().handler(BodyHandler.create());
-        router.get("/artists").handler(this::handleListArtists);
-        router.get("/artists/:artistID").handler(this::handleGetArtist);
-        router.get("/albums").handler(this::handleListAlbums);
-        router.get("/albums/:albumID").handler(this::handleGetalbum);
-        router.get("/tracks").handler(this::handleListTracks);
+        Routes can = new Routes();
+        can.routes(router);
 
         vertx.createHttpServer().requestHandler(router).rxListen(8081)
                 .doOnError(r -> {
@@ -89,51 +84,7 @@ public class RestVerticle extends AbstractVerticle {
                     log.debug("Server on!");
                 });
     }
-    private void handleGetArtist(RoutingContext routingContext) {
-        String artistID = routingContext.request().getParam("artistID");
-        HttpServerResponse response = routingContext.response();
-        if (artistID == null) {
-            sendError(400, response);
-        } else {
-            JsonObject product = artists.get(artistID);
-            if (product == null) {
-                sendError(404, response);
-            } else {
-                response.putHeader("content-type", "application/json").end(product.encodePrettily());
-            }
-        }
-    }
-    private void handleGetalbum(RoutingContext routingContext) {
-        String albumID = routingContext.request().getParam("albumID");
-        HttpServerResponse response = routingContext.response();
-        if (albumID == null) {
-            sendError(400, response);
-        } else {
-            JsonObject product = albums.get(albumID);
-            if (product == null) {
-                sendError(404, response);
-            } else {
-                response.putHeader("content-type", "application/json").end(product.encodePrettily());
-            }
-        }
-    }
 
-
-    private void handleListArtists(RoutingContext routingContext) {
-        JsonArray arr = new JsonArray();
-        artists.forEach((k, v) -> arr.add(v));
-        routingContext.response().putHeader("content-type", "application/json").end(arr.encodePrettily());
-    }
-    private void handleListAlbums(RoutingContext routingContext) {
-        JsonArray arr = new JsonArray();
-        albums.forEach((k, v) -> arr.add(v));
-        routingContext.response().putHeader("content-type", "application/json").end(arr.encodePrettily());
-    }
-    private void handleListTracks(RoutingContext routingContext) {
-        JsonArray arr = new JsonArray();
-        tracks.forEach((k, v) -> arr.add(v));
-        routingContext.response().putHeader("content-type", "application/json").end(arr.encodePrettily());
-    }
 
     private void sendError(int statusCode, HttpServerResponse response) {
         response.setStatusCode(statusCode).end();
