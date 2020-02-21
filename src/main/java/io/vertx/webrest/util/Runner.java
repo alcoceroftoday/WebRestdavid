@@ -17,13 +17,10 @@ public class Runner {
     runExample(WEB_EXAMPLES_JAVA_DIR, clazz, new VertxOptions().setClustered(false), null);
   }
 
-
   public static void runExample(String exampleDir, Class clazz, VertxOptions options, DeploymentOptions
     deploymentOptions) {
     runExample(exampleDir + clazz.getPackage().getName().replace(".", "/"), clazz.getName(), options, deploymentOptions);
   }
-
-
 
   public static void runExample(String exampleDir, String verticleID, VertxOptions options, DeploymentOptions deploymentOptions) {
     if (options == null) {
