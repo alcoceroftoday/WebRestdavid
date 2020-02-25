@@ -38,6 +38,28 @@ public class MusicService {
                                                 })
                                         .collect(Collectors.toList()));
     }
+    public Single<List<Album>> getArtist(String artist) {
+        return dbConnection
+                .db
+                .rxQuery("select * from albums WHERE artist_id ="+artist)
+                .map(ResultSet::getRows)
+                .map(
+                        rows ->
+                                rows.stream()
+                                        .map(
+                                                row -> {
+                                                    Album albums = new Album(
+                                                            row.getInteger("id"),
+                                                            row.getString("name"),
+                                                            row.getString("artwork"),
+                                                            row.getInteger("artist_id"),
+                                                            row.getString("created_at"),
+                                                            row.getString("updated_ap")
+                                                    );
+                                                    return albums;
+                                                })
+                                        .collect(Collectors.toList()));
+    }
     public Single<List<Album>> getAlbum() {
         return dbConnection
                 .db
@@ -60,6 +82,32 @@ public class MusicService {
                                                 })
                                         .collect(Collectors.toList()));
     }
+
+    public Single<List<Track>> getAlbum(String album) {
+        return dbConnection
+                .db
+                .rxQuery("select * from tracks WHERE album_id ="+album)
+                .map(ResultSet::getRows)
+                .map(
+                        rows ->
+                                rows.stream()
+                                        .map(
+                                                row -> {
+                                                    Track tracks = new Track(
+                                                            row.getInteger("id"),
+                                                            row.getString("name"),
+                                                            row.getInteger("track"),
+                                                            row.getInteger("duration"),
+                                                            row.getString("url"),
+                                                            row.getInteger("album_id"),
+                                                            row.getString("created_at"),
+                                                            row.getString("updated_ap")
+                                                    );
+                                                    return tracks;
+                                                })
+                                        .collect(Collectors.toList()));
+    }
+
     public Single<List<Track>> getTrack() {
         return dbConnection
                 .db

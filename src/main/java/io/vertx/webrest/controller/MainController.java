@@ -56,31 +56,27 @@ public class MainController  {
                 });
     }
     private void handleGetArtist(RoutingContext routingContext) {
-//        String artistID = routingContext.request().getParam("artistID");
-//        HttpServerResponse response = routingContext.response();
-//        if (artistID == null) {
-//            sendError(400, response);
-//        } else {
-//            JsonObject product = artists.get(artistID);
-//            if (product == null) {
-//                sendError(404, response);
-//            } else {
-//                response.putHeader("content-type", "application/json").end(product.encodePrettily());
-//            }
-//        }
+        String artistID = routingContext.request().getParam("artistID");
+        musicService
+                .getArtist(artistID)
+                .subscribe(resultSet -> {
+                    routingContext.response().putHeader("content-type", "application/json").end(new Gson().toJson(resultSet));
+                    System.out.println("Results : "+ new Gson().toJson(resultSet));
+                }, err -> {
+                    System.out.println("Database problem");
+                    err.printStackTrace();
+                });
     }
     private void handleGetalbum(RoutingContext routingContext) {
-//        String albumID = routingContext.request().getParam("albumID");
-//        HttpServerResponse response = routingContext.response();
-//        if (albumID == null) {
-//            sendError(400, response);
-//        } else {
-//            JsonObject product = albums.get(albumID);
-//            if (product == null) {
-//                sendError(404, response);
-//            } else {
-//                response.putHeader("content-type", "application/json").end(product.encodePrettily());
-//            }
-//        }
+       String albumID = routingContext.request().getParam("albumID");
+        musicService
+                .getAlbum(albumID)
+                .subscribe(resultSet -> {
+                    routingContext.response().putHeader("content-type", "application/json").end(new Gson().toJson(resultSet));
+                    System.out.println("Results : "+ new Gson().toJson(resultSet));
+                }, err -> {
+                    System.out.println("Database problem");
+                    err.printStackTrace();
+                });
     }
 }
