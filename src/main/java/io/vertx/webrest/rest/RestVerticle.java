@@ -9,7 +9,7 @@ import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.webrest.controller.MainController;
 import io.vertx.webrest.model.DbConnection;
-import io.vertx.webrest.service.ArtistService;
+import io.vertx.webrest.service.MusicService;
 
 public class RestVerticle extends AbstractVerticle {
     private static Logger log = LoggerFactory.getLogger(AbstractVerticle.class);
@@ -19,14 +19,11 @@ public class RestVerticle extends AbstractVerticle {
 
         Vertx vertx = Vertx.currentContext().owner();
 
-        //creacion de router
         Router router = Router.router(vertx);
 
-        //cofnig de controllers (config router)
-        MainController ctrl = new MainController(new ArtistService(new DbConnection()));
+        MainController ctrl = new MainController(new MusicService(new DbConnection()));
         ctrl.routes(router);
 
-        // creacion de servidor
         vertx.createHttpServer().requestHandler(router).rxListen(8081)
                 .doOnError(r -> {
                     log.debug("Server error!");

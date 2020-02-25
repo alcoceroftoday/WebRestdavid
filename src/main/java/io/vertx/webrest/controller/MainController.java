@@ -4,14 +4,14 @@ import com.google.gson.Gson;
 import io.vertx.core.json.JsonArray;
 import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.ext.web.RoutingContext;
-import io.vertx.webrest.service.ArtistService;
+import io.vertx.webrest.service.MusicService;
 
 public class MainController  {
 
-    private final ArtistService artistService;
+    private final MusicService musicService;
 
-    public MainController(ArtistService artistService){
-        this.artistService = artistService;
+    public MainController(MusicService musicService){
+        this.musicService = musicService;
     }
 
     public void routes(Router routes) {
@@ -23,25 +23,37 @@ public class MainController  {
     }
 
     private void handleListArtists(RoutingContext routingContext) {
-        artistService
+        musicService
                 .getArtist()
                 .subscribe(resultSet -> {
                     routingContext.response().putHeader("content-type", "application/json").end(new Gson().toJson(resultSet));
-                    System.out.println("Results : "+ new Gson().toJson(resultSet)  );
+                    System.out.println("Results : "+ new Gson().toJson(resultSet));
                 }, err -> {
                     System.out.println("Database problem");
                     err.printStackTrace();
                 });
     }
     private void handleListAlbums(RoutingContext routingContext) {
-        JsonArray arr = new JsonArray();
-//        albums.forEach((k, v) -> arr.add(v));
-        routingContext.response().putHeader("content-type", "application/json").end(arr.encodePrettily());
+        musicService
+                .getAlbum()
+                .subscribe(resultSet -> {
+                    routingContext.response().putHeader("content-type", "application/json").end(new Gson().toJson(resultSet));
+                    System.out.println("Results : "+ new Gson().toJson(resultSet));
+                }, err -> {
+                    System.out.println("Database problem");
+                    err.printStackTrace();
+                });
     }
     private void handleListTracks(RoutingContext routingContext) {
-        JsonArray arr = new JsonArray();
-//        tracks.forEach((k, v) -> arr.add(v));
-        routingContext.response().putHeader("content-type", "application/json").end(arr.encodePrettily());
+        musicService
+                .getTrack()
+                .subscribe(resultSet -> {
+                    routingContext.response().putHeader("content-type", "application/json").end(new Gson().toJson(resultSet));
+                    System.out.println("Results : "+ new Gson().toJson(resultSet));
+                }, err -> {
+                    System.out.println("Database problem");
+                    err.printStackTrace();
+                });
     }
     private void handleGetArtist(RoutingContext routingContext) {
 //        String artistID = routingContext.request().getParam("artistID");
