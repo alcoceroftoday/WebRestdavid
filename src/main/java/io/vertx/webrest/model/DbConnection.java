@@ -21,7 +21,7 @@ public class DbConnection {
             if (res.succeeded()) {
 
                 SQLConnection connection = res.result();
-                System.out.println(connection);
+//                System.out.println(connection);
 //                ResultSet rs = res2.result();
 //                for (JsonArray line : rs.getResults()) {
 ////                            line.getJsonArray(0);

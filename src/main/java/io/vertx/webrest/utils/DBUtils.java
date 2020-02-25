@@ -1,4 +1,4 @@
-package io.vertx.webrest.util;
+package io.vertx.webrest.utils;
 
 import io.vertx.core.json.JsonObject;
 

@@ -5,16 +5,15 @@ import io.vertx.core.Future;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 import io.vertx.reactivex.core.http.HttpServerResponse;
-import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.ext.web.Router;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.webrest.controller.MainController;
-import java.util.HashMap;
-import java.util.Map;
+import io.vertx.webrest.model.DbConnection;
+import io.vertx.webrest.service.ArtistService;
 
 public class RestVerticle extends AbstractVerticle {
-
     private static Logger log = LoggerFactory.getLogger(AbstractVerticle.class);
+
 
     @Override
     public void start(Future<Void> startFuture) {
@@ -25,7 +24,7 @@ public class RestVerticle extends AbstractVerticle {
         Router router = Router.router(vertx);
 
         //cofnig de controllers (config router)
-        MainController ctrl = new MainController();
+        MainController ctrl = new MainController(new ArtistService(new DbConnection()));
         ctrl.routes(router);
 
         // creacion de servidor
