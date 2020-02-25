@@ -14,7 +14,6 @@ import io.vertx.webrest.service.ArtistService;
 public class RestVerticle extends AbstractVerticle {
     private static Logger log = LoggerFactory.getLogger(AbstractVerticle.class);
 
-
     @Override
     public void start(Future<Void> startFuture) {
 

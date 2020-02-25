@@ -2,7 +2,6 @@ package io.vertx.webrest.model;
 
 import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.ext.jdbc.JDBCClient;
-import io.vertx.reactivex.ext.sql.SQLConnection;
 import io.vertx.reactivex.core.Vertx;
 import javax.inject.Singleton;
 
@@ -19,14 +18,6 @@ public class DbConnection {
                         .put("password", "david"));
         db.getConnection(res -> {
             if (res.succeeded()) {
-
-                SQLConnection connection = res.result();
-//                System.out.println(connection);
-//                ResultSet rs = res2.result();
-//                for (JsonArray line : rs.getResults()) {
-////                            line.getJsonArray(0);
-//                    System.out.println(line.encode());
-//                }
                 System.out.println("SE conecto");
             } else {
                 System.out.println("Error");
